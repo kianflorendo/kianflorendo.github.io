@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kian Angelo Florendo | Robotics & AI Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
+    }
+
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --secondary: #1e293b;
+      --dark: #0f172a;
+      --light: #f1f5f9;
+      --gray: #64748b;
+      --success: #059669;
+      --accent: #7c3aed;
+    }
+
+    body {
+      background: var(--dark);
+      color: var(--light);
+      line-height: 1.6;
+      overflow-x: hidden;
+      font-weight: 400;
+    }
+
+    /* Particles background */
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    /* Header styling */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 4rem;
+      background: rgba(15, 23, 42, 0.95);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    header h1 {
+      display: flex;
+      align-items: center;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--light);
+    }
+
+    header h1 img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-right: 12px;
+      border: 2px solid var(--primary);
+      transition: all 0.3s ease;
+      object-fit: cover;
+    }
+
+    header h1:hover img {
+      border-color: var(--success);
+      transform: rotate(5deg);
+    }
+
+    nav {
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--light);
+      font-weight: 500;
+      transition: 0.3s;
+      position: relative;
+      padding: 0.5rem 0;
+      font-size: 0.95rem;
+      letter-spacing: 0.2px;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* Hero section */
+    .hero {
+      min-height: 95vh;
+      display: flex;
+      align-items: center;
+      padding: 4rem;
+      position: relative;
+    }
+
+    .hero-content {
+      max-width: 850px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .hero h2 {
+      font-size: 3.2rem;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(to right, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: fadeIn 1s ease;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      margin-bottom: 2.5rem;
+      color: var(--gray);
+      animation: fadeIn 1.5s ease;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      font-weight: 400;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+      animation: fadeIn 2s ease;
+    }
+
+    .btn {
+      padding: 0.9rem 2.2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      display: inline-block;
+      font-size: 1rem;
+      letter-spacing: 0.3px;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 15px rgba(37, 99, 235, 0.3);
+    }
+
+    .btn-outline {
+      border: 1.5px solid var(--primary);
+      color: var(--primary);
+      background: transparent;
+    }
+
+    .btn-outline:hover {
+      background: var(--primary);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 15px rgba(37, 99, 235, 0.3);
+    }
+
+    /* Section styling */
+    section {
+      padding: 5rem 4rem;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 4rem;
+      position: relative;
+    }
+
+    .section-title h2 {
+      font-size: 2.4rem;
+      display: inline-block;
+      font-weight: 600;
+      color: var(--light);
+    }
+
+    .section-title h2::after {
+      content: '';
+      position: absolute;
+      bottom: -1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 70px;
+      height: 4px;
+      background: var(--primary);
+      border-radius: 2px;
+    }
+
+    /* About section */
+    .about {
+      background: rgba(15, 23, 42, 0.6);
+    }
+
+    .about-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+
+    .about-text h3 {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .about-text p {
+      margin-bottom: 1.5rem;
+      color: var(--gray);
+      line-height: 1.7;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1.5rem;
+    }
+
+    .skill-chip {
+      padding: 0.5rem 1.2rem;
+      background: rgba(37, 99, 235, 0.1);
+      border: 1px solid rgba(37, 99, 235, 0.3);
+      border-radius: 4px;
+      font-size: 0.85rem;
+      color: var(--primary);
+      font-weight: 500;
+    }
+
+    .about-image img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .about-image img:hover {
+      transform: translateY(-5px);
+    }
+
+    /* Skills Section */
+    .skills-section {
+      background: rgba(30, 41, 59, 0.7);
+    }
+
+    .skills-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .skill-category {
+      background: rgba(15, 23, 42, 0.6);
+      padding: 2rem;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .skill-category h3 {
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      font-size: 1.4rem;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .skill-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .skill-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.3s ease;
+    }
+
+    .skill-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .skill-icon {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+
+    .skill-icon img {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+    }
+
+    .skill-name {
+      font-size: 0.9rem;
+      color: var(--light);
+      text-align: center;
+    }
+
+    /* Custom Espressif icon styling */
+    .espressif-icon {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(45deg, #e7352b, #f6851f);
+      border-radius: 8px;
+      position: relative;
+      margin-bottom: 0.5rem;
+    }
+    
+    .espressif-icon:before {
+      content: "E";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-weight: bold;
+      font-size: 1.2rem;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* ALAB HERO Section */
+    .alab-hero-section {
+      background: linear-gradient(to bottom right, rgba(30, 41, 59, 0.7), rgba(15, 23, 42, 0.8));
+      border-radius: 12px;
+      padding: 3.5rem;
+      margin: 3rem 0;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .alab-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .alab-header h2 {
+      font-size: 2.4rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .alab-header p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto;
+      color: var(--gray);
+    }
+
+    .alab-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .alab-detail {
+      background: rgba(15, 23, 42, 0.5);
+      padding: 2.2rem;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .alab-detail h3 {
+      color: var(--primary);
+      margin-bottom: 1.2rem;
+      font-size: 1.3rem;
+      font-weight: 600;
+    }
+
+    .alab-detail p, .alab-detail li {
+      color: var(--gray);
+      line-height: 1.7;
+    }
+
+    .alab-detail ul {
+      margin-left: 1.2rem;
+      margin-top: 0.8rem;
+    }
+
+    .alab-detail li {
+      margin-bottom: 0.5rem;
+    }
+
+    .alab-images {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .alab-images img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      transition: all 0.3s ease;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .alab-images img:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 20px rgba(0,0,0,0.4);
+    }
+
+    /* Projects section */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 2.5rem;
+    }
+
+    .card {
+      background: linear-gradient(to bottom, rgba(30, 41, 59, 0.7), rgba(15, 23, 42, 0.8));
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      position: relative;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      height: fit-content;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.35);
+    }
+
+    .card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      transition: all 0.5s ease;
+    }
+
+    .card:hover img {
+      transform: scale(1.03);
+    }
+
+    .card-content {
+      padding: 1.8rem;
+      position: relative;
+    }
+
+    .card-content h3 {
+      margin-bottom: 0.8rem;
+      color: var(--primary);
+      font-size: 1.3rem;
+      font-weight: 600;
+    }
+
+    .card-content p {
+      color: var(--gray);
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .card-tag {
+      padding: 0.4rem 0.9rem;
+      background: rgba(37, 99, 235, 0.1);
+      border-radius: 4px;
+      font-size: 0.8rem;
+      color: var(--primary);
+      font-weight: 500;
+    }
+
+    .hidden-info {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease;
+    }
+
+    .hidden-info.active {
+      max-height: 2000px;
+    }
+
+    .hidden-info-content {
+      padding: 1.5rem 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .hidden-info-content p {
+      margin-bottom: 1rem;
+    }
+
+    .hidden-info img {
+      border-radius: 8px;
+      margin: 0.8rem 0;
+      width: 100%;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      height: auto;
+      max-height: 300px;
+      object-fit: contain;
+    }
+
+    .view-more {
+      display: inline-flex;
+      align-items: center;
+      margin-top: 0.5rem;
+      color: var(--primary);
+      font-weight: 500;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: color 0.3s ease;
+    }
+
+    .view-more:hover {
+      color: var(--primary-dark);
+    }
+
+    .view-more i {
+      margin-left: 0.5rem;
+      transition: transform 0.3s ease;
+    }
+
+    .view-more.active i {
+      transform: rotate(180deg);
+    }
+
+    /* Contact section */
+    .contact {
+      background: rgba(15, 23, 42, 0.6);
+      text-align: center;
+    }
+
+    .contact-content {
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    .contact p {
+      margin-bottom: 2.5rem;
+      font-size: 1.1rem;
+      color: var(--gray);
+      line-height: 1.7;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+      margin-top: 2.5rem;
+    }
+
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      border-radius: 8px;
+      background: rgba(30, 41, 59, 0.7);
+      color: var(--light);
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .social-links a:hover {
+      background: var(--primary);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2.5rem;
+      background: rgba(15, 23, 42, 0.9);
+      font-size: 0.9rem;
+      color: var(--gray);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.5s ease;
+    }
+
+    .animate.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive design */
+    @media (max-width: 1080px) {
+      header {
+        padding: 1.2rem 2.5rem;
+      }
+      
+      section {
+        padding: 4rem 2.5rem;
+      }
+      
+      .hero {
+        padding: 3rem 2.5rem;
+      }
+    }
+
+    @media (max-width: 992px) {
+      .about-content,
+      .alab-content {
+        grid-template-columns: 1fr;
+      }
+      
+      .alab-images {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .skills-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 1rem 1.5rem;
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      header h1 {
+        margin-bottom: 1rem;
+      }
+      
+      nav {
+        gap: 1.5rem;
+      }
+      
+      section {
+        padding: 3.5rem 1.5rem;
+      }
+      
+      .hero {
+        padding: 2.5rem 1.5rem;
+      }
+      
+      .hero h2 {
+        font-size: 2.4rem;
+      }
+      
+      .hero p {
+        font-size: 1.1rem;
+      }
+      
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .alab-hero-section {
+        padding: 2rem 1.5rem;
+      }
+      
+      .alab-images {
+        grid-template-columns: 1fr;
+      }
+      
+      .hero-buttons {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
+      
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 1.4rem;
+      }
+      
+      nav a {
+        font-size: 0.9rem;
+      }
+      
+      .hero h2 {
+        font-size: 2rem;
+      }
+      
+      .section-title h2 {
+        font-size: 2rem;
+      }
+      
+      .alab-header h2 {
+        font-size: 1.8rem;
+      }
+      
+      .skill-category {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="particles-js"></div>
+
+  <header>
+    <h1>
+      <img src="images/8dd41a2c-f254-4a1a-a29d-474d95d88edc.jpg" alt="Kian Angelo Florendo">
+      Kian Angelo Florendo
+    </h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#alab-hero">Featured</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Self taught Robotics and Full stack developer / GDG Data and Machine Learning Lead</h2>
+      <p>Designing intelligent systems that bridge the gap between cutting-edge research and real-world applications through robotics, artificial intelligence, and innovative technology solutions.</p>
+      <div class="hero-buttons">
+        <a href="#alab-hero" class="btn btn-primary">View Featured Project</a>
+        <a href="#contact" class="btn btn-outline">Contact Me</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <div class="section-title">
+      <h2>About Me</h2>
+    </div>
+    <div class="about-content">
+      <div class="about-text animate">
+        <h3>Hello! I'm Kian Angelo Florendo</h3>
+        <p>I'm a self taught innovative engineer and developer with a passion for creating advanced robotics, IoT and AI systems. My expertise lies in developing intelligent solutions that address complex challenges through the integration of cutting-edge technologies.</p>
+        <p>With a foundation in both hardware and software development, I specialize in building end-to-end systems that are not just automated but truly intelligent, adaptive, and capable of solving real-world problems.</p>
+        <div class="skills">
+          <span class="skill-chip">Robotics Engineering</span>
+          <span class="skill-chip">Artificial Intelligence</span>
+          <span class="skill-chip">Computer Vision</span>
+          <span class="skill-chip">IoT Systems</span>
+          <span class="skill-chip">Full-Stack Development</span>
+          <span class="skill-chip">Machine Learning</span>
+        </div>
+      </div>
+      <div class="about-image animate">
+        <img src="images/612cfbaf-5046-4ef0-9151-895f43c75e4e.jpg" alt="Working on robotics">
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="skills-section">
+    <div class="section-title">
+      <h2>Skills & Technologies</h2>
+    </div>
+    <div class="skills-container">
+      <div class="skills-grid">
+        <div class="skill-category animate">
+          <h3>Programming Languages</h3>
+          <div class="skill-items">
+            <div class="skill-item">
+              <i class="devicon-python-plain colored skill-icon"></i>
+              <span class="skill-name">Python</span>
+            </div>
+            <div class="skill-item">
+              <i class="devicon-javascript-plain colored skill-icon"></i>
+              <span class="skill-name">JavaScript</span>
+            </div>
+            <div class="skill-item">
+              <i class="devicon-cplusplus-plain colored skill-icon"></i>
+              <span class="skill-name">C++</span>
+            </div>
+            <div class="skill-item">
+              <i class="devicon-java-plain colored skill-icon"></i>
+              <span class="skill-name">Java</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-category animate">
+          <h3>Frameworks & Libraries</h3>
+          <div class="skill-items">
+            <div class="skill-item">
+              <i class="devicon-react-original colored skill-icon"></i>
+              <span class="skill-name">React</span>
+            </div>
+            <div class="skill-item">
+              <i class="devicon-nodejs-plain colored skill-icon"></i>
+              <span class="skill-name">Node.js</span>
+            </div>
+            <div class="skill-item">
+              <i class="devicon-tensorflow-original colored skill-icon"></i>
+              <span class="skill-name">TensorFlow</span>
+            </div>
+            <div class="skill-item">
+              <i class="devicon-pytorch-plain colored skill-icon"></i>
+              <span class="skill-name">PyTorch</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-category animate">
+          <h3>Tools & Platforms</h3>
+          <div class="skill-items">
+            <div class="skill-item">
+              <i class="devicon-arduino-plain colored skill-icon"></i>
+              <span class="skill-name">Arduino</span>
+            </div>
+            <div class="skill-item">
+              <i class="devicon-raspberrypi-line colored skill-icon"></i>
+              <span class="skill-name">Raspberry Pi</span>
+            </div>
+            <div class="skill-item">
+              <div class="espressif-icon"></div>
+              <span class="skill-name">Espressif</span>
+            </div>
+            <div class="skill-item">
+              <i class="devicon-git-plain colored skill-icon"></i>
+              <span class="skill-name">Git</span>
+            </div>
+            <div class="skill-item">
+              <i class="devicon-docker-plain colored skill-icon"></i>
+              <span class="skill-name">Docker</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-category animate">
+          <h3>Other Technologies</h3>
+          <div class="skill-items">
+            <div class="skill-item">
+              <i class="devicon-html5-plain colored skill-icon"></i>
+              <span class="skill-name">HTML5</span>
+            </div>
+            <div class="skill-item">
+              <i class="devicon-css3-plain colored skill-icon"></i>
+              <span class="skill-name">CSS3</span>
+            </div>
+            <div class="skill-item">
+              <i class="devicon-mongodb-plain colored skill-icon"></i>
+              <span class="skill-name">MongoDB</span>
+            </div>
+            <div class="skill-item">
+              <i class="devicon-mysql-plain colored skill-icon"></i>
+              <span class="skill-name">MySQL</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="alab-hero">
+    <div class="section-title">
+      <h2>Featured Project</h2>
+    </div>
+    
+    <div class="alab-hero-section animate">
+      <div class="alab-header">
+        <h2>ALAB HERO</h2>
+        <p>Advanced AI-Powered Firefighting Robot with Comprehensive Monitoring System</p>
+      </div>
+      
+      <div class="alab-content">
+        <div class="alab-detail">
+          <h3>Project Overview</h3>
+          <p>ALAB HERO is an innovative robotic system designed for autonomous fire detection and extinguishing. The platform incorporates a web dashboard, mobile application, SMS/call alert systems, real-time GPS mapping, and IoT connectivity for comprehensive emergency response management.</p>
+          <p>The robot utilizes advanced AI algorithms and sensor integration to detect fires with high accuracy and can autonomously navigate to the source to initiate extinguishing procedures while providing critical real-time data to emergency responders.</p>
+        </div>
+        
+        <div class="alab-detail">
+          <h3>Technical Features</h3>
+          <ul>
+            <li>Real-time fire detection using convolutional neural networks (CNN)</li>
+            <li>Autonomous navigation and path planning system</li>
+            <li>IoT connectivity for remote monitoring and control</li>
+            <li>Comprehensive web dashboard for central monitoring</li>
+            <li>Cross-platform mobile application for field management</li>
+            <li>Multi-channel alert system (SMS, call, push notifications)</li>
+            <li>Real-time GPS tracking and mapping interface</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="alab-images">
+        <img src="images/Screenshot 2025-09-18 030357.png" alt="Alab Hero Robot Design">
+        <img src="images/Screenshot 2025-09-18 030618.png" alt="Dashboard Interface">
+        <img src="images/Screenshot 2025-09-18 030200.png" alt="Mobile Application">
+        <img src="images/28ffb7db-7d49-4bfa-b1b8-8db0c19b7619.jpg" alt="System Architecture">
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="section-title">
+      <h2>Project Portfolio</h2>
+    </div>
+    <div class="projects-grid">
+
+      <div class="card animate">
+        <img src="images/cc6efe44-f6a7-4c3a-9352-ce59b286ee6c.jpg" alt="CNN AI Lesion Spotter">
+        <div class="card-content">
+          <h3>CNN AI Lesion Spotter</h3>
+          <p>Advanced medical imaging AI system for automated lesion detection and analysis in diagnostic healthcare applications.</p>
+          <div class="card-tags">
+            <span class="card-tag">AI</span>
+            <span class="card-tag">Healthcare</span>
+            <span class="card-tag">CNN</span>
+            <span class="card-tag">Medical Imaging</span>
+          </div>
+          <div class="view-more" onclick="toggleInfo(this)">
+            View Details <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="hidden-info">
+            <div class="hidden-info-content">
+              <p>The CNN AI Lesion Spotter is a sophisticated medical imaging analysis system that utilizes deep learning algorithms to detect and classify lesions in medical scans with high precision. This system assists healthcare professionals in early diagnosis and treatment planning.</p>
+              <p>Key features include high-accuracy detection, detailed analysis reports, integration with existing medical systems, and a user-friendly interface for medical professionals.</p>
+              <img src="images/9eb6c1f7-6c52-4a22-9867-667cce13c045.jpg" alt="Lesion Spotter Interface">
+              <img src="images/fbb937e9-7e3a-478f-8db0-97ad218de608.jpg" alt="Detection Analysis">
+              <img src="images/9bd02922-7410-414d-974b-b8e0924ec092.jpg" alt="System Architecture">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card animate">
+        <img src="images/Screenshot (241).png" alt="Bond M.A.S.T.E.R.">
+        <div class="card-content">
+          <h3>Bond M.A.S.T.E.R. Chemical Bonding GameDev using Scratch</h3>
+          <p>Fun and interactive game for learning chemical bonding concepts.</p>
+          <div class="card-tags">
+            <span class="card-tag">GameDev</span>
+            <span class="card-tag">Interactive</span>
+            <span class="card-tag">Chemistry</span>
+            <span class="card-tag">Educational</span>
+          </div>
+          <div class="view-more" onclick="toggleInfo(this)">
+            View Details <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="hidden-info">
+            <div class="hidden-info-content">
+              <p>Bond M.A.S.T.E.R. is an educational game developed using Scratch that makes learning chemical bonding concepts engaging and interactive. The game challenges players to form different types of chemical bonds by combining elements with appropriate properties.</p>
+              <p>Key features include interactive gameplay, educational content aligned with chemistry curricula, progress tracking, and a user-friendly interface designed for students of all ages.</p>
+              <img src="images/Screenshot (189).png" alt="Bond M.A.S.T.E.R. Technical">
+              <img src="images/Screenshot (215).png" alt="Bond M.A.S.T.E.R Game interface">
+              <img src="images/Screenshot (185).png" alt="Bond M.A.S.T.E.R Game interface">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card animate">
+        <img src="images/Screenshot (37).png" alt="Smart Home System">
+        <div class="card-content">
+          <h3>GenZspace</h3>
+          <p>Interactive spacecraft game to learn mathematics.</p>
+          <div class="card-tags">
+            <span class="card-tag">Math</span>
+            <span class="card-tag">Educational</span>
+            <span class="card-tag">Fun</span>
+            <span class="card-tag">Interactive</span>
+          </div>
+          <div class="view-more" onclick="toggleInfo(this)">
+            View Details <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="hidden-info">
+            <div class="hidden-info-content">
+              <p>GenZspace is an interactive math game where players control spacecraft in space battles. If a spacecraft gets destroyed, the player must solve a math question to continue. Correct answers unlock rewards and let players choose new spacecraft, combining learning with exciting gameplay.</p>
+              <p>Key features include interactive space-themed gameplay, math challenges aligned with learning objectives, reward-based progression, and a user-friendly interface designed to engage students of all ages..</p>
+              <img src="images/Screenshot (54).png" alt="GenZspace Dashboard">
+              <img src="images/Screenshot (57).png" alt="GenZspace Mobile App">
+              <img src="images/Screenshot (33).png" alt="GenZspace System Architecture">
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="section-title">
+      <h2>Contact Me</h2>
+    </div>
+    <div class="contact-content animate">
+      <p>I'm always interested in discussing new opportunities, collaborative projects, or innovative ideas. Whether you have a specific project in mind or would like to explore potential synergies, feel free to reach out.</p>
+      <a href="mailto:kianflorendo20@gmail.com" class="btn btn-primary">Send an Email</a>
+      <div class="social-links">
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 Kian Angelo Florendo | All Rights Reserved</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    
+    particlesJS('particles-js', {
+      particles: {
+        number: { value: 80, density: { enable: true, value_area: 800 } },
+        color: { value: "#2563eb" },
+        shape: { type: "circle" },
+        opacity: { value: 0.5, random: true },
+        size: { value: 3, random: true },
+        line_linked: {
+          enable: true,
+          distance: 150,
+          color: "#2563eb",
+          opacity: 0.4,
+          width: 1
+        },
+        move: {
+          enable: true,
+          speed: 2,
+          direction: "none",
+          random: true,
+          straight: false,
+          out_mode: "out",
+          bounce: false
+        }
+      },
+      interactivity: {
+        detect_on: "canvas",
+        events: {
+          onhover: { enable: true, mode: "grab" },
+          onclick: { enable: true, mode: "push" },
+          resize: true
+        }
+      },
+      retina_detect: true
+    });
+
+    
+    function toggleInfo(element) {
+      const card = element.closest('.card');
+      const info = card.querySelector('.hidden-info');
+      const viewMore = card.querySelector('.view-more');
+      
+      info.classList.toggle('active');
+      viewMore.classList.toggle('active');
+    }
+
+    
+    function checkScroll() {
+      const elements = document.querySelectorAll('.animate');
+      
+      elements.forEach(element => {
+        const elementPosition = element.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.3;
+        
+        if (elementPosition < screenPosition) {
+          element.classList.add('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', checkScroll);
+    window.addEventListener('load', checkScroll);
+
+    
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
